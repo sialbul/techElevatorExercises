@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "4wUC0vj04H9B9b4n45RZSMLEbqiIOJpmEWF9NfwZFQB4dNLF1Ekg31511CHYlRE4lnWZtL8MMj4s2Ih6DHu46g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Student\\Desktop\\sibel-baslamisli-student-code\\csharp\\module-2\\12_Consuming_RESTful_APIs_Part_2\\exercise\\AuctionApp\\AuctionApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Student\\.nuget\\packages\\restsharp\\106.11.7\\restsharp.106.11.7.nupkg.sha512"
+  ],
+  "logs": []
+}

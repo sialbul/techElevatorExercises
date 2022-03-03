@@ -1,0 +1,16 @@
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\12_Consuming_RESTful_APIs_Part_2\exercise\AuctionApp\bin\Debug\netcoreapp3.1\AuctionApp.exe
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\12_Consuming_RESTful_APIs_Part_2\exercise\AuctionApp\bin\Debug\netcoreapp3.1\AuctionApp.deps.json
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\12_Consuming_RESTful_APIs_Part_2\exercise\AuctionApp\bin\Debug\netcoreapp3.1\AuctionApp.runtimeconfig.json
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\12_Consuming_RESTful_APIs_Part_2\exercise\AuctionApp\bin\Debug\netcoreapp3.1\AuctionApp.runtimeconfig.dev.json
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\12_Consuming_RESTful_APIs_Part_2\exercise\AuctionApp\bin\Debug\netcoreapp3.1\AuctionApp.dll
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\12_Consuming_RESTful_APIs_Part_2\exercise\AuctionApp\bin\Debug\netcoreapp3.1\AuctionApp.pdb
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\12_Consuming_RESTful_APIs_Part_2\exercise\AuctionApp\bin\Debug\netcoreapp3.1\RestSharp.dll
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\12_Consuming_RESTful_APIs_Part_2\exercise\AuctionApp\obj\Debug\netcoreapp3.1\AuctionApp.csproj.AssemblyReference.cache
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\12_Consuming_RESTful_APIs_Part_2\exercise\AuctionApp\obj\Debug\netcoreapp3.1\AuctionApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\12_Consuming_RESTful_APIs_Part_2\exercise\AuctionApp\obj\Debug\netcoreapp3.1\AuctionApp.AssemblyInfoInputs.cache
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\12_Consuming_RESTful_APIs_Part_2\exercise\AuctionApp\obj\Debug\netcoreapp3.1\AuctionApp.AssemblyInfo.cs
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\12_Consuming_RESTful_APIs_Part_2\exercise\AuctionApp\obj\Debug\netcoreapp3.1\AuctionApp.csproj.CoreCompileInputs.cache
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\12_Consuming_RESTful_APIs_Part_2\exercise\AuctionApp\obj\Debug\netcoreapp3.1\AuctionApp.csproj.CopyComplete
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\12_Consuming_RESTful_APIs_Part_2\exercise\AuctionApp\obj\Debug\netcoreapp3.1\AuctionApp.dll
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\12_Consuming_RESTful_APIs_Part_2\exercise\AuctionApp\obj\Debug\netcoreapp3.1\AuctionApp.pdb
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\12_Consuming_RESTful_APIs_Part_2\exercise\AuctionApp\obj\Debug\netcoreapp3.1\AuctionApp.genruntimeconfig.cache

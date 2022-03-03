@@ -1,0 +1,24 @@
+2022-03-01 04:06:22 PM An http error occured.
+	Action 'Add new auction'
+ 	Response : 400 
+
+2022-03-01 04:06:22 PM Error occured in 'Add new auction'- unable to reach server
+	Action:Add new auction
+	Response status was 'Error'.
+
+2022-03-01 04:06:22 PM An http error occured.
+	Action 'Delete auction99'
+ 	Response : 404 
+
+2022-03-01 04:06:22 PM Error occured in 'Delete auction99'- unable to reach server
+	Action:Delete auction99
+	Response status was 'Error'.
+
+2022-03-01 04:06:22 PM An http error occured.
+	Action 'Update auction4'
+ 	Response : 400 
+
+2022-03-01 04:06:22 PM Error occured in 'Update auction4'- unable to reach server
+	Action:Update auction4
+	Response status was 'Error'.
+
