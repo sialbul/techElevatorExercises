@@ -1,0 +1,10 @@
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\09_DAO_Testing\exercise\EmployeeProjects\bin\Debug\netcoreapp3.1\EmployeeProjects.deps.json
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\09_DAO_Testing\exercise\EmployeeProjects\bin\Debug\netcoreapp3.1\EmployeeProjects.dll
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\09_DAO_Testing\exercise\EmployeeProjects\bin\Debug\netcoreapp3.1\EmployeeProjects.pdb
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\09_DAO_Testing\exercise\EmployeeProjects\obj\Debug\netcoreapp3.1\EmployeeProjects.csproj.AssemblyReference.cache
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\09_DAO_Testing\exercise\EmployeeProjects\obj\Debug\netcoreapp3.1\EmployeeProjects.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\09_DAO_Testing\exercise\EmployeeProjects\obj\Debug\netcoreapp3.1\EmployeeProjects.AssemblyInfoInputs.cache
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\09_DAO_Testing\exercise\EmployeeProjects\obj\Debug\netcoreapp3.1\EmployeeProjects.AssemblyInfo.cs
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\09_DAO_Testing\exercise\EmployeeProjects\obj\Debug\netcoreapp3.1\EmployeeProjects.csproj.CoreCompileInputs.cache
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\09_DAO_Testing\exercise\EmployeeProjects\obj\Debug\netcoreapp3.1\EmployeeProjects.dll
+C:\Users\Student\Desktop\sibel-baslamisli-student-code\csharp\module-2\09_DAO_Testing\exercise\EmployeeProjects\obj\Debug\netcoreapp3.1\EmployeeProjects.pdb

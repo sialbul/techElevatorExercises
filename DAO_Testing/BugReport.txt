@@ -1,0 +1,233 @@
+Bug 1
+-----
+Test that demonstrates problem:
+  public IList<Timesheet> GetTimesheetsByEmployeeId(int employeeId)
+        {
+            IList<Timesheet> timesheets = new List<Timesheet>();
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT timesheet_id, employee_id, project_id, date_worked, hours_worked, is_billable, description " +
+                                                "FROM timesheet " +
+                                                "WHERE employee_id = @employee_id " +
+                                                "ORDER BY timesheet_id;", conn);
+                cmd.Parameters.AddWithValue("@employee_id", employeeId);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    Timesheet timesheet = CreateTimesheetFromReader(reader);
+                    timesheets.Add(timesheet);
+                }
+            }
+
+            return timesheets;
+        }
+Expected output:
+ employee_id is not null so we do not need to check by if statement. 
+Actual output:
+  Assert.AreEqual failed. Expected:<2>. Actual:<1>. 
+How did you fix this bug?
+
+
+        public IList<Timesheet> GetTimesheetsByEmployeeId(int employeeId)
+        {
+            IList<Timesheet> timesheets = new List<Timesheet>();
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT timesheet_id, employee_id, project_id, date_worked, hours_worked, is_billable, description " +
+                                                "FROM timesheet " +
+                                                "WHERE employee_id = @employee_id " +
+                                                "ORDER BY timesheet_id;", conn);
+                cmd.Parameters.AddWithValue("@employee_id", employeeId);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Timesheet timesheet = CreateTimesheetFromReader(reader);
+                    timesheets.Add(timesheet);
+                }
+            }
+
+            return timesheets;
+        }
+Bug 2
+-----
+Test that demonstrates problem:
+        public IList<Timesheet> GetTimesheetsByProjectId(int projectId)
+        {
+            IList<Timesheet> timesheets = new List<Timesheet>();
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT timesheet_id, employee_id, project_id, date_worked, hours_worked, is_billable, description " +
+                                                "FROM timesheet " +
+                                                "WHERE employee_id = @project_id " +
+                                                "ORDER BY timesheet_id;", conn);
+                cmd.Parameters.AddWithValue("@project_id", projectId);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Timesheet timesheet = CreateTimesheetFromReader(reader);
+                    timesheets.Add(timesheet);
+                }
+            }
+
+            return timesheets;
+        }
+Expected output:
+ Expected 3 but it was checking Where employee_id equals project_id, it should be checking project_id where equals user's input project_id!
+Actual output:
+    Assert.AreEqual failed. Expected:<3>. Actual:<2>. 
+
+How did you fix this bug?
+   public IList<Timesheet> GetTimesheetsByProjectId(int projectId)
+        {
+            IList<Timesheet> timesheets = new List<Timesheet>();
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT timesheet_id, employee_id, project_id, date_worked, hours_worked, is_billable, description " +
+                                                "FROM timesheet " +
+                                                "WHERE project_id = @project_id " +
+                                                "ORDER BY timesheet_id;", conn);
+                cmd.Parameters.AddWithValue("@project_id", projectId);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Timesheet timesheet = CreateTimesheetFromReader(reader);
+                    timesheets.Add(timesheet);
+                }
+            }
+
+            return timesheets;
+        }
+
+Bug 3
+-----
+Test that demonstrates problem:
+
+        public decimal GetBillableHours(int employeeId, int projectId)
+        {
+            decimal billableHours = 0;
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT SUM(hours_worked) AS billable_hours " +
+                                                "FROM timesheet " +
+                                                "WHERE employee_id = @employee_id AND project_id = @project_id;", conn);
+                cmd.Parameters.AddWithValue("@employee_id", employeeId);
+                cmd.Parameters.AddWithValue("@project_id", projectId);
+
+                object returnedValue = cmd.ExecuteScalar();
+
+                if (returnedValue != DBNull.Value)
+                {
+                    billableHours = Convert.ToDecimal(returnedValue);
+                }
+              
+            }
+
+            return billableHours;
+        }
+
+Expected output:
+            timesheetHours = dao.GetBillableHours(2, 2);
+            Assert.AreEqual(0, timesheetHours);
+Actual output:
+            Assert.AreEqual failed. Expected:<0>. Actual:<2.00>. 
+How did you fix this bug?
+public decimal GetBillableHours(int employeeId, int projectId)
+        {
+            decimal billableHours = 0;
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT SUM(hours_worked) AS billable_hours " +
+                                                "FROM timesheet " +
+                                                "WHERE employee_id = @employee_id AND project_id = @project_id AND is_billable =1;", conn);
+                cmd.Parameters.AddWithValue("@employee_id", employeeId);
+                cmd.Parameters.AddWithValue("@project_id", projectId);
+
+                object returnedValue = cmd.ExecuteScalar();
+
+                if (returnedValue != DBNull.Value)
+                {
+                    billableHours = Convert.ToDecimal(returnedValue);
+                }
+              
+            }
+
+            return billableHours;
+        }
+
+Bug 4
+-----
+Test that demonstrates problem:
+        public void UpdateTimesheet(Timesheet updatedTimesheet)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("UPDATE timesheet " +
+                                                "SET employee_id = @employee_id, project_id = @project_id, date_worked = @date_worked, " +
+                                                "hours_worked = @hours_worked, description = @description " +
+                                                "WHERE timesheet_id = @timesheet_id;", conn);
+                cmd.Parameters.AddWithValue("@employee_id", updatedTimesheet.EmployeeId);
+                cmd.Parameters.AddWithValue("@project_id", updatedTimesheet.ProjectId);
+                cmd.Parameters.AddWithValue("@date_worked", updatedTimesheet.DateWorked);
+                cmd.Parameters.AddWithValue("@hours_worked", updatedTimesheet.HoursWorked);
+                cmd.Parameters.AddWithValue("@is_billable", updatedTimesheet.IsBillable);
+                cmd.Parameters.AddWithValue("@description", updatedTimesheet.Description);
+                cmd.Parameters.AddWithValue("@timesheet_id", updatedTimesheet.TimesheetId);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+
+Expected output:
+To be able to update  is_billable = @is_billable!
+Actual output:
+    Assert.AreEqual failed. Expected:<False>. Actual:<True>. 
+
+How did you fix this bug?
+       public void UpdateTimesheet(Timesheet updatedTimesheet)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("UPDATE timesheet " +
+                                                "SET employee_id = @employee_id, project_id = @project_id, date_worked = @date_worked, " +
+                                                "hours_worked = @hours_worked,  is_billable = @is_billable, description = @description " +
+                                                "WHERE timesheet_id = @timesheet_id;", conn);
+                cmd.Parameters.AddWithValue("@employee_id", updatedTimesheet.EmployeeId);
+                cmd.Parameters.AddWithValue("@project_id", updatedTimesheet.ProjectId);
+                cmd.Parameters.AddWithValue("@date_worked", updatedTimesheet.DateWorked);
+                cmd.Parameters.AddWithValue("@hours_worked", updatedTimesheet.HoursWorked);
+                cmd.Parameters.AddWithValue("@is_billable", updatedTimesheet.IsBillable);
+                cmd.Parameters.AddWithValue("@description", updatedTimesheet.Description);
+                cmd.Parameters.AddWithValue("@timesheet_id", updatedTimesheet.TimesheetId);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
